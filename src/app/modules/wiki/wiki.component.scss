@@ -17,6 +17,7 @@
         font-weight: 700;
         color: #fff;
         font-family: $kablamo;
+        cursor: default;
     }
 
     &__content {
@@ -33,6 +34,7 @@
             background-color: $blue-dark;
             padding: 1vh 2vw;
             border-radius: 10px;
+            cursor: pointer;
 
             &__title {
                 font-size: 2rem;
