@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GameService } from 'src/app/services/game.service';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-wiki',
@@ -27,6 +28,7 @@ export class WikiComponent {
 
   constructor(
     private gameService: GameService,
+    private viewportScroller: ViewportScroller
   ) { }
 
   toggleSectionVisibility(name: string) {
@@ -39,6 +41,7 @@ export class WikiComponent {
       });
       section.visible = !section.visible;
     }
+    this.scrollToTop();
   }
 
   getSectionVisibility(name: string) {
@@ -55,5 +58,9 @@ export class WikiComponent {
       return section.visible ? 'keyboard_arrow_up' : 'keyboard_arrow_down';
     }
     return 'keyboard_arrow_down';
+  }
+
+  private scrollToTop() {
+    this.viewportScroller.scrollToPosition([0, 0]);
   }
 }
