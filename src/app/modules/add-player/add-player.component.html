@@ -1,0 +1,29 @@
+<div class="addplayer">
+
+    <div class="addplayer__title">
+        Add Player
+    </div>
+    <div class="addplayer__content">
+        <div class="addplayer__content__inputs">
+            <fieldset class="input">
+                <legend>Name</legend>
+                <input type="text" [(ngModel)]="palyerName" placeholder="Name">
+            </fieldset>
+            <fieldset class="input">
+                <legend>Role</legend>
+                <input type="text" placeholder="Name" [value]="role.name" disabled>
+            </fieldset>
+            <div class="addplayer__content__inputs__error">
+                {{error}}
+            </div>
+        </div>
+        <div class="addplayer__content__buttons" (click)="addPlayer()">
+            <button class="btnOk">
+                Add
+            </button>
+            <button class="btnCancel" (click)="goBack()">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>

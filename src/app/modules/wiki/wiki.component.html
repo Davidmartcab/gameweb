@@ -1,0 +1,45 @@
+<div class="wiki">
+    <div class="wiki__title">
+        Wiki
+    </div>
+
+    <div class="wiki__content">
+        <div class="wiki__content__tramo" (click)="toggleSectionVisibility('Roles')">
+            <div class="wiki__content__tramo__title">
+                Roles
+            </div>
+            <div class="wiki__content__tramo__content  {{getSectionVisibility('Roles')}}">
+                <div class="wiki__content__tramo__content__text" *ngFor="let role of roles">
+                    <div class="centered">
+                        <img [src]="role.icon" alt="" height="25px">
+                        <strong>-{{role.name}}:</strong>
+                    </div>
+                    <div class="">
+                        {{role.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wiki__content__tramo" (click)="toggleSectionVisibility('Reglas')">
+            <div class="wiki__content__tramo__title">
+                Reglas
+            </div>
+            <div class="wiki__content__tramo__content  {{getSectionVisibility('Reglas')}}">
+                <div class="wiki__content__tramo__content__text">
+                    <div class="">
+                        Cada jugador tiene un rol diferente asignado, hay {{roles.length}} roles diferentes.
+                    </div>
+                </div>
+                <div class="wiki__content__tramo__content__text">
+                    <div class="">
+                        El juego es como una especie de mentiroso, pero con roles y acciones.
+                    </div>
+                    <div class="">
+                        Cada jugador tiene que realizar las acciones que le corresponden a su rol, pero sin que los
+                        demás jugadores se den cuenta.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

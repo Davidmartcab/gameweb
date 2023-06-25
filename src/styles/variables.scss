@@ -1,0 +1,51 @@
+$black: #000000;
+$blue-dark: #222142;
+$magenta: #ff00ff;
+$indigo: #4b0082;
+$blue-bright: #00ccff;
+$blue: #003366;
+
+
+
+$red: (
+    100: #ffebee,
+    200: #ffcdd2,
+    300: #ef9a9a,
+    400: #e57373,
+    500: #f44336,
+    600: #e53935,
+    700: #d32f2f,
+    800: #c62828,
+    900: #b71c1c
+);
+
+$green: (
+    100: #e8f5e9,
+    200: #c8e6c9,
+    300: #a5d6a7,
+    400: #81c784,
+    500: #4caf50,
+    600: #43a047,
+    700: #388e3c,
+    800: #2e7d32,
+    900: #1b5e20
+);
+
+// Ejemplo de uso
+.cancel-button {
+    background-color: map-get($red, 500);
+    color: #ffffff;
+}
+
+.accept-button {
+    background-color: map-get($green, 500);
+    color: #ffffff;
+}
+
+
+@font-face {
+    font-family: 'Kablammo';
+    src: url('../assets/fonts/Kablammo-Regular-VariableFont_MORF.ttf') format('truetype');
+}
+
+$kablamo: 'Kablammo', monospace;
