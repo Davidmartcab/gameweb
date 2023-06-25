@@ -15,7 +15,7 @@ export class WikiComponent {
     },
     {
       name: 'Reglas',
-      visible: true
+      visible: false
     }
   ]
 
