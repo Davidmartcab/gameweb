@@ -11,7 +11,7 @@
             <div class="wiki__content__tramo__content  {{getSectionVisibility('Roles')}}">
                 <div class="wiki__content__tramo__content__text" *ngFor="let role of roles">
                     <div class="centered">
-                        <img [src]="role.icon" alt="" height="25px">
+                        <img [src]="role.icon" alt="" height="25px" class="svg-icon">
                         <strong>-{{role.name}}:</strong>
                     </div>
                     <div class="">
@@ -32,11 +32,33 @@
                 </div>
                 <div class="wiki__content__tramo__content__text">
                     <div class="">
-                        El juego es como una especie de mentiroso, pero con roles y acciones.
+                        Este juego es parecido al mentiroso.
                     </div>
                     <div class="">
                         Cada jugador tiene que realizar las acciones que le corresponden a su rol, pero sin que los
                         demás jugadores se den cuenta.
+                    </div>
+                    <div class="">
+                        También pueden realizar acciones de otros roles para despistar.
+                    </div>
+                </div>
+                <div class="wiki__content__tramo__content__text">
+                    <div class="">
+                        Cuando uno de los jugadores crea que sabe cual es el rol de otro jugador, puede acusarlo.
+                        Esto se podrá hacer desde el menú de acusar, en el cual elegirás el nombre del jugador y el rol que
+                        crees que tiene. 
+                    </div>
+                    <div class="">
+                        Si aciertas ese jugador debe acabarse el vaso de un trago, además dicho jugador habrá perdido.
+                        Pero si te equivocas, serás tu el que deberá beberse todo el vaso y la partida sigue.
+                    </div>
+                </div>
+                <div class="wiki__content__tramo__content__text">
+                    <div class="">
+                        Si no recuerdas que rol tenías, puedes acceder al menu de consulta, en el cual pincharás en tu nombre y te dira tu rol.
+                    </div>
+                    <div class="">
+                        Cada jugador podrá accecer a la página del juego para consultar tantas veces como quiera que hace cada rol.
                     </div>
                 </div>
             </div>

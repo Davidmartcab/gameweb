@@ -44,7 +44,7 @@ export class GameService {
   }
 
   public addNewRole(name: string, description: string) {
-    let role: Role = { name, description, icon: '/assets/icons/interrogacion/interrogacion-50.png', selected: false };
+    let role: Role = { name, description, icon: '/assets/icons/interrogacion/interrogacion-50.svg', selected: false };
     // comprueba que no exista ya el rol
     if (this.roles.filter(role => role.name === name).length) {
       return { status: 400, data: 'El rol ya existe' };
@@ -60,72 +60,72 @@ export class GameService {
       {
         name: 'Borracho',
         description: 'El borracho: tienes que beber cada vez que alguno del grupo beba. Si beben más de uno a la vez tienes que beber tantas veces como personas hayan bebido.',
-        icon: `/assets/icons/borracho/borracho-${this.iconScale}.png`
+        icon: `/assets/icons/borracho/borracho-${this.iconScale}.svg`
       },
       {
         name: 'Cansino',
         description: 'El cansino: tienes que freir a preguntas a los demás jugadores. Si alguno de los jugadores no te responde a la pregunta, tienes que beber.',
-        icon: `/assets/icons/cansino/cansino-${this.iconScale}.png`
+        icon: `/assets/icons/cansino/cansino-${this.iconScale}.svg`
       },
       {
         name: 'Empanado',
         description: 'El empanado: No te enteras de nada, cuando alguien te dice algo tienes que preguntarle varias veces ¿Qué?, pero ojo, no seas muy cantoso porque sino te pillarán.',
-        icon: `/assets/icons/empanado/empanado-${this.iconScale}.png`
+        icon: `/assets/icons/empanado/empanado-${this.iconScale}.svg`
       },
       {
         name: 'Dramatico',
         description: 'El dramático: tienes que exagerar todo lo que digas.',
-        icon: `/assets/icons/dramatico/dramatico-${this.iconScale}.png`
+        icon: `/assets/icons/dramatico/dramatico-${this.iconScale}.svg`
       },
       {
         name: 'Fanatico',
         description: 'El fanático: tienes que decir que todo lo que hace el grupo está mal y que tú lo harías mejor.',
-        icon: `/assets/icons/fanatico/fanatico-${this.iconScale}.png`
+        icon: `/assets/icons/fanatico/fanatico-${this.iconScale}.svg`
       },
       {
         name: 'Desafinado',
         description: 'El desafinado: cada vez que suene una canción tienes que ponerte a cantar, pero tienes que desafinar. Si la música está permanentemente sonando, tienes que cantar cada 5 minutos +-',
-        icon: `/assets/icons/desafinado/desafinado-${this.iconScale}.png`
+        icon: `/assets/icons/desafinado/desafinado-${this.iconScale}.svg`
       },
       {
         name: 'Leyenda',
         description: 'La leyenda: tienes que inventar una historia asombrosa cada vez que te toque hablar. Si los demás jugadores no creen en tu historia, tienes que beber.',
-        icon: `/assets/icons/leyenda/leyenda-${this.iconScale}.png`
+        icon: `/assets/icons/leyenda/leyenda-${this.iconScale}.svg`
       },
       {
         name: 'Poliglota',
         description: 'El políglota: tienes que hablar en diferentes idiomas. Si alguien te responde en el mismo idioma (excepto español), tienes que beber.',
-        icon: `/assets/icons/poliglota/poliglota-${this.iconScale}.png`
+        icon: `/assets/icons/poliglota/poliglota-${this.iconScale}.svg`
       },
       {
         name: 'Mudo',
         description: 'El mudo: no puedes hablar en toda la partida. Si hablas, tienes que beber. Intena gesticular para que los demas no te pillen',
-        icon: `/assets/icons/mudo/mudo-${this.iconScale}.png`
+        icon: `/assets/icons/mudo/mudo-${this.iconScale}.svg`
       },
       {
         name: 'Sabiondo',
         description: 'El sabiondo: tienes que responder a todas las preguntas que te hagan con información falsa o inventada. Si no se lo creen tienes que beber.',
-        icon: `/assets/icons/sabiondo/sabiondo-${this.iconScale}.png`
+        icon: `/assets/icons/sabiondo/sabiondo-${this.iconScale}.svg`
       },
       {
         name: 'Perfeccionista',
         description: 'El perfeccionista: tienes que corregir a los demás jugadores cada vez que digan algo mal',
-        icon: `/assets/icons/perfeccionista/perfeccionista-${this.iconScale}.png`
+        icon: `/assets/icons/perfeccionista/perfeccionista-${this.iconScale}.svg`
       },
       {
         name: 'Bromista',
         description: 'El bromista: tienes que hacer una broma a los demás jugadores cada vez que te toque hablar. Si no se ríen, tienes que beber.',
-        icon: `/assets/icons/bromista/bromista-${this.iconScale}.png`
+        icon: `/assets/icons/bromista/bromista-${this.iconScale}.svg`
       },
       {
         name: 'Borde',
         description: 'El borde: tienes que ser borde con los demás jugadores. Si alguno de los jugadores se enfada, tienes que beber.',
-        icon: `/assets/icons/borde/borde-${this.iconScale}.png`
+        icon: `/assets/icons/borde/borde-${this.iconScale}.svg`
       },
       {
         name: 'Adivino',
         description: 'El adivino: tienes que intentar terminar las frases de los demás todo el rato.',
-        icon: `/assets/icons/adivino/adivino-${this.iconScale}.png`
+        icon: `/assets/icons/adivino/adivino-${this.iconScale}.svg`
       }
     )
   }
