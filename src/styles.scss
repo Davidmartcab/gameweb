@@ -128,3 +128,15 @@ body {
 .svg-icon {
     color: white;
 }
+
+.colored_text {
+    animation: color-change 10s infinite;
+}
+
+@keyframes color-change {
+    0% { color: red; }
+    25% { color: blue; }
+    50% { color: green; }
+    75% { color: orange; }
+    100% { color: purple; }
+  }
