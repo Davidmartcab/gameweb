@@ -16,6 +16,10 @@ export class WikiComponent {
     {
       name: 'Reglas',
       visible: false
+    },
+    {
+      name: 'How',
+      visible: false
     }
   ]
 
@@ -26,9 +30,13 @@ export class WikiComponent {
   ) { }
 
   toggleSectionVisibility(name: string) {
-    // change the visibility of the section
     let section = this.sections.find(section => section.name === name);
     if (section) {
+      this.sections.forEach(section => {
+        if (section.name !== name) {
+          section.visible = false;
+        }
+      });
       section.visible = !section.visible;
     }
   }
@@ -39,5 +47,13 @@ export class WikiComponent {
       return section.visible ? 'yes' : 'no';
     }
     return 'no';
+  }
+
+  getSectionVisibilityArrow(name: string) {
+    let section = this.sections.find(section => section.name === name);
+    if (section) {
+      return section.visible ? 'keyboard_arrow_up' : 'keyboard_arrow_down';
+    }
+    return 'keyboard_arrow_down';
   }
 }

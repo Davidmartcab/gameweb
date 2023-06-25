@@ -4,9 +4,13 @@
     </div>
 
     <div class="wiki__content">
-        <div class="wiki__content__tramo" (click)="toggleSectionVisibility('Roles')">
-            <div class="wiki__content__tramo__title">
-                Roles
+        <div class="wiki__content__tramo">
+            <div class="wiki__content__tramo__title"  (click)="toggleSectionVisibility('Roles')">
+                <div class="wiki__content__tramo__title__text">
+                    Roles
+                </div>
+                <img src="/assets/icons/flecha/flecha-50.svg" alt="" height="25px"
+                    class="wiki__content__tramo__title__img  {{getSectionVisibilityArrow('Roles')}}">
             </div>
             <div class="wiki__content__tramo__content  {{getSectionVisibility('Roles')}}">
                 <div class="wiki__content__tramo__content__text" *ngFor="let role of roles">
@@ -20,9 +24,13 @@
                 </div>
             </div>
         </div>
-        <div class="wiki__content__tramo" (click)="toggleSectionVisibility('Reglas')">
-            <div class="wiki__content__tramo__title">
-                Reglas
+        <div class="wiki__content__tramo">
+            <div class="wiki__content__tramo__title" (click)="toggleSectionVisibility('Reglas')">
+                <div class="wiki__content__tramo__title__text">
+                    Reglas
+                </div>
+                <img src="/assets/icons/flecha/flecha-50.svg" alt="" height="25px"
+                    class="wiki__content__tramo__title__img {{getSectionVisibilityArrow('Reglas')}}">
             </div>
             <div class="wiki__content__tramo__content  {{getSectionVisibility('Reglas')}}">
                 <div class="wiki__content__tramo__content__text">
@@ -39,14 +47,16 @@
                         demás jugadores se den cuenta.
                     </div>
                     <div class="">
-                        También pueden realizar acciones de otros roles para despistar.
+                        También pueden realizar acciones de otros roles para despistar. Aunque es obligatorio seguir
+                        haciendo las tuyas.
                     </div>
                 </div>
                 <div class="wiki__content__tramo__content__text">
                     <div class="">
                         Cuando uno de los jugadores crea que sabe cual es el rol de otro jugador, puede acusarlo.
-                        Esto se podrá hacer desde el menú de acusar, en el cual elegirás el nombre del jugador y el rol que
-                        crees que tiene. 
+                        Esto se podrá hacer desde el menú de acusar, en el cual elegirás el nombre del jugador y el rol
+                        que
+                        crees que tiene.
                     </div>
                     <div class="">
                         Si aciertas ese jugador debe acabarse el vaso de un trago, además dicho jugador habrá perdido.
@@ -55,10 +65,47 @@
                 </div>
                 <div class="wiki__content__tramo__content__text">
                     <div class="">
-                        Si no recuerdas que rol tenías, puedes acceder al menu de consulta, en el cual pincharás en tu nombre y te dira tu rol.
+                        Si no recuerdas que rol tenías, puedes acceder al menu de consulta, en el cual pincharás en tu
+                        nombre y te dira tu rol.
                     </div>
                     <div class="">
-                        Cada jugador podrá accecer a la página del juego para consultar tantas veces como quiera que hace cada rol.
+                        Cada jugador podrá accecer a la página del juego para consultar tantas veces como quiera que
+                        hace cada rol.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wiki__content__tramo">
+            <div class="wiki__content__tramo__title"  (click)="toggleSectionVisibility('How')">
+                <div class="wiki__content__tramo__title__text">
+                    Como Jugar
+                </div>
+                <img src="/assets/icons/flecha/flecha-50.svg" alt="" height="25px"
+                    class="wiki__content__tramo__title__img  {{getSectionVisibilityArrow('How')}}">
+            </div>
+            <div class="wiki__content__tramo__content  {{getSectionVisibility('How')}}">
+                <div class="wiki__content__tramo__content__text">
+                    <div class="">
+                        Hay un jugador que es el que crea la partida.
+                    </div>
+                    <div class="">
+                        Usando el dispositivo de dicho jugador, los demás jugadores deberán ponerse un nombre.
+                    </div>
+                    <div class="">
+                        Como al añadir un usuario se ve el rol que te ha tocado, deberá ser cada jugador el que se
+                        añada.
+                    </div>
+                </div>
+                <div class="wiki__content__tramo__content__text">
+                    <div class="">
+                        Este juego es en modo offLine, por solo se podrá jugar con el dispositivo del jugador que crea
+                        la partida.
+                        El resto de jugadores podrán usar sus dispositivos para consultar las reglas y los roles.
+                    </div>
+                </div>
+                <div class="wiki__content__tramo__content__text">
+                    <div class="">
+                        El resto de normas están en <strong>Reglas</strong>
                     </div>
                 </div>
             </div>
