@@ -12,9 +12,7 @@ export class GameService {
   players: Player[] = [];
   iconScale: number = 50;
 
-  constructor() {
-    this.start();
-  }
+  constructor() { }
 
   public posibleRole() {
     let role: Role = this.roles.filter(role => !role.selected)[Math.floor(Math.random() * this.roles.filter(role => !role.selected).length)];
@@ -40,6 +38,7 @@ export class GameService {
     role.selected = true;
     this.players.push({ id, name, role });
     this.players.sort((a, b) => a.name.localeCompare(b.name));
+    localStorage.setItem('lastGame', JSON.stringify({ players: this.players, roles: this.roles }));
     return { status: 200, data: { id, name, role } };
   }
 
@@ -58,6 +57,7 @@ export class GameService {
 
     this.roles.push(role);
     this.roles.sort((a, b) => a.name.localeCompare(b.name));
+    localStorage.setItem('lastGame', JSON.stringify({ players: this.players, roles: this.roles }));
     return { status: 200, data: role };
   }
 
@@ -92,15 +92,18 @@ export class GameService {
     this.players = this.players.filter(player => player.name !== name);
     this.roles.filter(r => r.name === role)[0].selected = false;
 
+    localStorage.setItem('lastGame', JSON.stringify({ players: this.players, roles: this.roles }));
+
     return { status: 200, data: { name, role } };
   }
 
   public refresh() {
     this.roles.forEach(role => role.selected = false);
     this.players = [];
+    localStorage.clear();
   }
 
-  private start() {
+  public start() {
     this.roles.push(
       {
         name: 'Borracho',
@@ -174,6 +177,16 @@ export class GameService {
       }
     )
     this.roles.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  public getLastGame() {
+    let lastGame = localStorage.getItem('lastGame');
+    if (lastGame) {
+      let game = JSON.parse(lastGame);
+      this.players = game.players;
+      this.roles = game.roles;
+    }
+
   }
 
 
