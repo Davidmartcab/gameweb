@@ -1,0 +1,28 @@
+<div class="consult">
+
+    <div class="consult__title colored_text">
+        Consultar
+    </div>
+    <div class="consult__content">
+        <div class="consult__content__inputs">
+            <fieldset class="input">
+                <legend>Name</legend>
+                <select name="" id="" [(ngModel)]="name">
+                    <option value="" selected disabled>Name</option>
+                    <option value="{{player.name}}" *ngFor="let player of players">{{player.name | titlecase}}</option>
+                </select>
+            </fieldset>
+            <div class="consult__content__inputs__error">
+                {{error}}
+            </div>
+        </div>
+        <div class="consult__content__buttons">
+            <button class="btnOk" (click)="onConsult()">
+                Consultar
+            </button>
+            <button class="btnCancel" (click)="goBack()">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>

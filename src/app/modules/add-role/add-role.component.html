@@ -1,0 +1,29 @@
+<div class="addrole">
+
+    <div class="addrole__title colored_text">
+        Add New Role
+    </div>
+    <div class="addrole__content">
+        <div class="addrole__content__inputs">
+            <fieldset class="input">
+                <legend>Name</legend>
+                <input type="text" [(ngModel)]="name" placeholder="Name">
+            </fieldset>
+            <fieldset class="input">
+                <legend>Description</legend>
+                <input type="text" placeholder="Description" [(ngModel)]="description">
+            </fieldset>
+            <div class="addrole__content__inputs__error">
+                {{error}}
+            </div>
+        </div>
+        <div class="addrole__content__buttons" (click)="addRole()">
+            <button class="btnOk">
+                Add
+            </button>
+            <button class="btnCancel" (click)="goBack()">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>

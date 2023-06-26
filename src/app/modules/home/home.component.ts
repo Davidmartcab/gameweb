@@ -16,7 +16,7 @@ export class HomeComponent {
   }
 
   goToCreateRole() {
-    this.router.navigate(['create-role']);
+    this.router.navigate(['add-role']);
   }
 
   goToAddPlayer() {

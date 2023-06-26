@@ -1,0 +1,56 @@
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { GameService } from 'src/app/services/game.service';
+import { Player } from 'src/models/player.model';
+import { Role } from 'src/models/role.model';
+import { PopupComponent } from '../../popup/popup.component';
+
+@Component({
+  selector: 'app-accuse',
+  templateUrl: './accuse.component.html',
+  styleUrls: ['./accuse.component.scss']
+})
+export class AccuseComponent implements OnInit {
+
+  name: string = '';
+  role: string = '';
+  players: Player[] = [];
+  roles: Role[] = [];
+  error: string = '';
+
+  constructor(
+    private router: Router,
+    private gameService: GameService,
+    private dialog: MatDialog,
+  ) { }
+  ngOnInit(): void {
+    this.players = this.gameService.players;
+    this.roles = this.gameService.roles;
+  }
+
+  goBack() {
+    this.router.navigate(['game']);
+  }
+
+  onAccuse() {
+    this.error = '';
+    let res = this.gameService.onAccuse(this.name, this.role);
+    console.log(res);
+    if (res.status !== 200) {
+      if (res.message)
+        this.error = res.message;
+      return;
+    }else{
+      this.dialog.open(PopupComponent, {
+        data: {
+          title: 'Create new user',
+          color: 'green',
+          message: ['Are you sure you want to create new user?'],
+          defaultButtons: ['yes', 'no'],
+        }
+      })
+    }
+
+  }
+}

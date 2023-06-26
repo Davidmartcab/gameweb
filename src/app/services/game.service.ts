@@ -44,15 +44,55 @@ export class GameService {
   }
 
   public addNewRole(name: string, description: string) {
+
+    if (!name)
+      return { status: 400, message: 'El nombre del rol es obligatorio' };
+
+    if (!description)
+      return { status: 400, message: 'La descripción del rol es obligatoria' };
+
+    if (this.roles.filter(role => role.name === name).length)
+      return { status: 400, message: 'El rol ya existe' };
+
     let role: Role = { name, description, icon: '/assets/icons/interrogacion/interrogacion-50.svg', selected: false };
-    // comprueba que no exista ya el rol
-    if (this.roles.filter(role => role.name === name).length) {
-      return { status: 400, data: 'El rol ya existe' };
-    }
-    // añade el rol a la lista de roles
+
     this.roles.push(role);
 
     return { status: 200, data: role };
+  }
+
+  public consultRole(name: string) {
+    if (!name)
+      return { status: 400, message: 'El nombre del jugador es obligatorio' };
+
+    let player: Player = this.players.filter(player => player.name === name)[0];
+    if (!player)
+      return { status: 400, message: 'El jugador no existe' };
+
+    if (!player.role)
+      return { status: 400, message: 'El jugador no tiene rol' };
+
+    return { status: 200, data: player.role };
+  }
+
+  public onAccuse(name: string, role: string) {
+    if (!name)
+      return { status: 400, message: 'El nombre del jugador es obligatorio' };
+
+    if (!role)
+      return { status: 400, message: 'El nombre del rol es obligatorio' };
+
+    let player: Player = this.players.filter(player => player.name === name)[0];
+    if (!player)
+      return { status: 400, message: 'El jugador no existe' };
+
+    if (player.role.name !== role)
+      return { status: 400, message: 'El jugador no tiene ese rol' };
+
+    this.players = this.players.filter(player => player.name !== name);
+    this.roles.filter(r => r.name === role)[0].selected = false;
+
+    return { status: 200, data: { name, role } };
   }
 
   private start() {
@@ -126,6 +166,15 @@ export class GameService {
         name: 'Adivino',
         description: 'El adivino: tienes que intentar terminar las frases de los demás todo el rato.',
         icon: `/assets/icons/adivino/adivino-${this.iconScale}.svg`
+      }
+    )
+      // añade en role uno aleatortio
+
+    this.players.push(
+      {
+        name: 'Jugador 1',
+        role: this.roles[Math.floor(Math.random() * this.roles.length)],
+        id: ''
       }
     )
   }

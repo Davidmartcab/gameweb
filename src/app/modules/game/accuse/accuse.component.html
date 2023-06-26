@@ -1,0 +1,35 @@
+<div class="accuse">
+
+    <div class="accuse__title colored_text">
+        Acusar
+    </div>
+    <div class="accuse__content">
+        <div class="accuse__content__inputs">
+            <fieldset class="input">
+                <legend>Name</legend>
+                <select name="name" id="" [(ngModel)]="name">
+                    <option value="" selected disabled>Name</option>
+                    <option value="{{player.name}}" *ngFor="let player of players">{{player.name | titlecase}}</option>
+                </select>
+            </fieldset>
+            <fieldset class="input">
+                <legend>Role</legend>
+                <select name="role" id="" [(ngModel)]="role">
+                    <option value="" selected disabled>Role</option>
+                    <option value="{{rol.name}}" *ngFor="let rol of roles">{{rol.name | titlecase}}</option>
+                </select>
+            </fieldset>
+            <div class="accuse__content__inputs__error">
+                {{error}}
+            </div>
+        </div>
+        <div class="accuse__content__buttons">
+            <button class="btnOk" (click)="onAccuse()">
+                Acusar
+            </button>
+            <button class="btnCancel" (click)="goBack()">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>
