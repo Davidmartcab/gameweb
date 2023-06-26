@@ -39,7 +39,7 @@ export class GameService {
 
     role.selected = true;
     this.players.push({ id, name, role });
-
+    this.players.sort((a, b) => a.name.localeCompare(b.name));
     return { status: 200, data: { id, name, role } };
   }
 
@@ -57,7 +57,7 @@ export class GameService {
     let role: Role = { name, description, icon: '/assets/icons/interrogacion/interrogacion-50.svg', selected: false };
 
     this.roles.push(role);
-
+    this.roles.sort((a, b) => a.name.localeCompare(b.name));
     return { status: 200, data: role };
   }
 
@@ -168,7 +168,7 @@ export class GameService {
         icon: `/assets/icons/adivino/adivino-${this.iconScale}.svg`
       }
     )
-      // añade en role uno aleatortio
+    this.roles.sort((a, b) => a.name.localeCompare(b.name));
 
     this.players.push(
       {
@@ -177,6 +177,7 @@ export class GameService {
         id: ''
       }
     )
+    this.players.sort((a, b) => a.name.localeCompare(b.name));
   }
 
 

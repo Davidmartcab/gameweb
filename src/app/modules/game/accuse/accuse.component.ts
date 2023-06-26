@@ -41,14 +41,16 @@ export class AccuseComponent implements OnInit {
       if (res.message)
         this.error = res.message;
       return;
-    }else{
+    } else {
       this.dialog.open(PopupComponent, {
         data: {
-          title: 'Create new user',
-          color: 'green',
-          message: ['Are you sure you want to create new user?'],
-          defaultButtons: ['yes', 'no'],
+
         }
+      }).afterClosed().subscribe(result => {
+        if (this.gameService.players.length < 2)
+          this.router.navigate(['']);
+        else
+          this.router.navigate(['game'])
       })
     }
 

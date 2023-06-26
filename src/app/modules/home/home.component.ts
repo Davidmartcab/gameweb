@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +11,8 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   constructor(
     private router: Router,
+    private gameService: GameService,
+    private toastr: ToastrService
   ) { }
 
   goToWiki() {
@@ -24,6 +28,9 @@ export class HomeComponent {
   }
 
   goToGame() {
-    this.router.navigate(['game']);
+    if (this.gameService.players.length < 2)
+      this.toastr.warning('Debe haber algún jugador');
+    else
+      this.router.navigate(['game']);
   }
 }
