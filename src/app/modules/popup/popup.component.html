@@ -1,1 +1,18 @@
-<p>popup works!</p>
+<div class="popup">
+    <div class="popup__title">
+        {{title}}
+    </div>
+    <div class="popup__content">
+        <div class="popup__content__adduser" *ngIf="type == 'adduser'">
+            <div class="popup__content__adduser__messages">
+                <div class="popup__content__adduser__messages__message" *ngFor="let message of message">
+                    {{message}}
+                </div>
+            </div>
+
+            <div class="popup__content__adduser__buttons">
+                <button class="btnOk" (click)="onClose(true)">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -44,12 +44,25 @@ export class AccuseComponent implements OnInit {
     } else {
       this.dialog.open(PopupComponent, {
         data: {
-
+          type: 'adduser',
+          title: 'Accuse',
+          message: ['Estás acusando a ' + this.name + ' de ser ' + this.role + '.', 'Y... es verdad.'],
+          defaultButtons: ['OK'],
         }
       }).afterClosed().subscribe(result => {
-        if (this.gameService.players.length < 2)
+        if (this.gameService.players.length < 2) {
           this.router.navigate(['']);
-        else
+          this.dialog.open(PopupComponent, {
+            data: {
+              type: 'adduser',
+              title: 'Win',
+              message: ['El ganador es: ' + this.gameService.players[0].name + '.'],
+              defaultButtons: ['OK'],
+            }
+          }).afterClosed().subscribe(() => {
+            this.gameService.refresh();
+          })
+        } else
           this.router.navigate(['game'])
       })
     }

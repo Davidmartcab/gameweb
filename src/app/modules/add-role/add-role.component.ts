@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { GameService } from 'src/app/services/game.service';
+import { PopupComponent } from '../popup/popup.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-role',
@@ -17,7 +18,7 @@ export class AddRoleComponent {
   constructor(
     private router: Router,
     private gameService: GameService,
-    private toastr: ToastrService
+    private dialog: MatDialog,
   ) { }
 
   goBack() {
@@ -32,7 +33,15 @@ export class AddRoleComponent {
         this.error = res.message;
       return;
     } else {
-      this.toastr.warning('Role added!');
+      this.dialog.open(PopupComponent, {
+        data: {
+          type: 'adduser',
+          title: 'Role Added',
+          message: ['Nuevo rol añadido', 'El nuevo rol es: ' + this.name],
+        }
+      }).afterClosed().subscribe(() => {
+        this.router.navigate(['']);
+      })
       this.router.navigate(['']);
     }
     console.log(res);

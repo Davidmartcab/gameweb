@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { GameService } from 'src/app/services/game.service';
 import { Role } from 'src/models/role.model';
+import { PopupComponent } from '../popup/popup.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-player',
@@ -24,7 +26,7 @@ export class AddPlayerComponent implements OnInit {
   constructor(
     private gameService: GameService,
     private router: Router,
-    private toastr: ToastrService
+    private dialog: MatDialog,
   ) {
 
   }
@@ -45,8 +47,15 @@ export class AddPlayerComponent implements OnInit {
         this.error = res.message;
       return;
     } else {
-      this.toastr.warning('User added!');
-      this.router.navigate(['']);
+      this.dialog.open(PopupComponent, {
+        data: {
+          type: 'adduser',
+          title: 'User Added',
+          message: ['Nuevo usuario añadido', this.palyerName + ' es ' + this.role.name],
+        }
+      }).afterClosed().subscribe(() => {
+        this.router.navigate(['']);
+      })
     }
     console.log(res);
   }

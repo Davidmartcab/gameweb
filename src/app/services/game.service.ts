@@ -95,6 +95,11 @@ export class GameService {
     return { status: 200, data: { name, role } };
   }
 
+  public refresh() {
+    this.roles.forEach(role => role.selected = false);
+    this.players = [];
+  }
+
   private start() {
     this.roles.push(
       {
@@ -169,15 +174,6 @@ export class GameService {
       }
     )
     this.roles.sort((a, b) => a.name.localeCompare(b.name));
-
-    this.players.push(
-      {
-        name: 'Jugador 1',
-        role: this.roles[Math.floor(Math.random() * this.roles.length)],
-        id: ''
-      }
-    )
-    this.players.sort((a, b) => a.name.localeCompare(b.name));
   }
 
 

@@ -1,0 +1,57 @@
+@import '/src/styles/variables.scss';
+
+.popup {
+    z-index: 1000;
+    width: 80vw;
+    height: 50vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    &__title {
+        font-size: 2rem;
+        font-weight: 700;
+        font-family: $kablamo;
+        border-bottom: 1px solid black;
+        height: 15%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $blue-dark;
+    }
+
+    &__content {
+        height: 85%;
+        width: 100%;
+        background-color: $blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        &__adduser {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 20px;
+            
+            &__messages {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+
+                &__message {
+                    padding: 10px 20px;
+                }
+            }
+        }
+    }
+    
+}
