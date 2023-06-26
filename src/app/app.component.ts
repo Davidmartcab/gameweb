@@ -32,7 +32,6 @@ export class AppComponent {
           this.gameservice.start()
           this.router.navigate(['']);
         }
-
       })
     } else {
       this.gameservice.start()
