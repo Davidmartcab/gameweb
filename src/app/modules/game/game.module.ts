@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AccuseComponent } from './accuse/accuse.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PopupComponent } from '../popup/popup.component';
+import { WikiComponent } from '../wiki/wiki.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'accuse',
     component: AccuseComponent
+  },
+  {
+    path: 'wiki',
+    component: WikiComponent
   },
   {
     path: '**',

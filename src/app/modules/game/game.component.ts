@@ -12,16 +12,20 @@ export class GameComponent {
     private router: Router
   ) { }
 
-  gotoConsult() {
+  goToConsult() {
     this.router.navigate(['game/consult']);
   }
 
-  gotoAccuse() {
+  goToAccuse() {
     this.router.navigate(['game/accuse']);
   }
 
   goHome() {
     this.router.navigate(['']);
+  }
+
+  goToWiki() {
+    this.router.navigate(['game/wiki']);
   }
 
 }

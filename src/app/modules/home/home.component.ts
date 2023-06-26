@@ -45,8 +45,10 @@ export class HomeComponent {
           message: ['La partida comenzará en breve', 'Hay ' + this.gameService.players.length + ' jugador' + (this.gameService.players.length === 1 ? '' : 'es') + '.', 'Pulsa ok para acceder.', 'Pulsa fuera del PopUp para no entrar.'],
         }
       }).afterClosed().subscribe(result => {
-        if (result)
+        if (result) {
+          this.gameService.startGame();
           this.router.navigate(['game']);
+        }
       })
   }
 }

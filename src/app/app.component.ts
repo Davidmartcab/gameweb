@@ -26,8 +26,12 @@ export class AppComponent {
       }).afterClosed().subscribe(result => {
         if (result) {
           this.gameservice.getLastGame()
-          if (this.gameservice.players.length >= 2)
-            this.router.navigate(['game']);
+          if (this.gameservice.players.length >= 2) {
+            if (this.gameservice.gameState)
+              this.router.navigate(['game']);
+            else
+              this.router.navigate(['']);
+          }
         } else {
           this.gameservice.refresh();
           this.gameservice.start()

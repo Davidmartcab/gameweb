@@ -10,6 +10,7 @@ export class GameService {
 
   roles: Role[] = [];
   players: Player[] = [];
+  gameState: boolean = false;
   iconScale: number = 50;
 
   constructor() { }
@@ -38,7 +39,7 @@ export class GameService {
     role.selected = true;
     this.players.push({ id, name, role });
     this.players.sort((a, b) => a.name.localeCompare(b.name));
-    localStorage.setItem('lastGame', JSON.stringify({ players: this.players, roles: this.roles }));
+    localStorage.setItem('lastGame', JSON.stringify({ state: this.gameState, players: this.players, roles: this.roles }));
     return { status: 200, data: { id, name, role } };
   }
 
@@ -57,7 +58,7 @@ export class GameService {
 
     this.roles.push(role);
     this.roles.sort((a, b) => a.name.localeCompare(b.name));
-    localStorage.setItem('lastGame', JSON.stringify({ players: this.players, roles: this.roles }));
+    localStorage.setItem('lastGame', JSON.stringify({ state: this.gameState, players: this.players, roles: this.roles }));
     return { status: 200, data: role };
   }
 
@@ -92,7 +93,7 @@ export class GameService {
     this.players = this.players.filter(player => player.name !== name);
     this.roles.filter(r => r.name === role)[0].selected = false;
 
-    localStorage.setItem('lastGame', JSON.stringify({ players: this.players, roles: this.roles }));
+    localStorage.setItem('lastGame', JSON.stringify({ state: this.gameState, players: this.players, roles: this.roles }));
 
     return { status: 200, data: { name, role } };
   }
@@ -179,13 +180,20 @@ export class GameService {
     this.roles.sort((a, b) => a.name.localeCompare(b.name));
   }
 
+  public startGame() {
+    this.gameState = true;
+    localStorage.setItem('lastGame', JSON.stringify({ state: this.gameState, players: this.players, roles: this.roles }));
+  }
+
   public getLastGame() {
     let lastGame = localStorage.getItem('lastGame');
     if (lastGame) {
       let game = JSON.parse(lastGame);
       this.players = game.players;
       this.roles = game.roles;
+      this.gameState = game.state;
     }
+    console.log(this.gameState);
 
   }
 
