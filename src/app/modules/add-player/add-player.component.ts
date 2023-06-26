@@ -50,8 +50,8 @@ export class AddPlayerComponent implements OnInit {
       this.dialog.open(PopupComponent, {
         data: {
           type: 'adduser',
-          title: 'User Added',
-          message: ['Nuevo usuario añadido', this.palyerName + ' es ' + this.role.name],
+          title: 'Player Added',
+          message: ['Nuevo jugador añadido', this.palyerName + ' es ' + this.role.name],
         }
       }).afterClosed().subscribe(() => {
         this.router.navigate(['']);
